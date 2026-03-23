@@ -19,6 +19,8 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Update README and releases from website feed
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: uv run --frozen build_readme.py
 
       - name: Commit and push if changed

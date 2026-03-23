@@ -9,6 +9,7 @@ GitHub Action commit the refreshed files.
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 from datetime import UTC, datetime
@@ -19,11 +20,12 @@ from urllib.parse import urlparse
 import httpx
 
 
-RECENT_WORK_COUNT = 10
+RECENT_WORK_COUNT = 5
 RECENT_WORK_URL = (
     "https://raw.githubusercontent.com/ecrum19/eliascrum/master/public/recent_work.json"
 )
 README_MARKER = "contributions"
+README_RECENT_RELEASES_MARKER = "readme_recent_releases"
 RECENT_RELEASES_MARKER = "recent_releases"
 RELEASE_COUNT_MARKER = "release_count"
 
@@ -47,13 +49,18 @@ class GitHubReleaseResolver:
     """Resolve release metadata for GitHub repositories with lightweight caching."""
 
     def __init__(self) -> None:
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "ecrum19-profile-readme-updater",
+        }
+        github_token = os.environ.get("GITHUB_TOKEN")
+        if github_token:
+            headers["Authorization"] = f"Bearer {github_token}"
+
         self.client = httpx.Client(
             timeout=30,
             follow_redirects=True,
-            headers={
-                "Accept": "application/vnd.github+json",
-                "User-Agent": "ecrum19-profile-readme-updater",
-            },
+            headers=headers,
         )
         self.cache: dict[str, dict[str, Any] | None] = {}
 
@@ -81,6 +88,11 @@ class GitHubReleaseResolver:
         response = self.client.get(f"https://api.github.com/repos/{repo}/releases/latest")
         if response.status_code == 404:
             return None
+        if response.status_code == 403:
+            raise RuntimeError(
+                "GitHub API rate limit exceeded while resolving releases. "
+                "Set GITHUB_TOKEN for authenticated requests."
+            )
         response.raise_for_status()
 
         payload = response.json()
@@ -101,6 +113,11 @@ class GitHubReleaseResolver:
         response = self.client.get(f"https://api.github.com/repos/{repo}/tags")
         if response.status_code == 404:
             return None
+        if response.status_code == 403:
+            raise RuntimeError(
+                "GitHub API rate limit exceeded while resolving tags. "
+                "Set GITHUB_TOKEN for authenticated requests."
+            )
         response.raise_for_status()
 
         tags = response.json()
@@ -166,13 +183,22 @@ def extract_items(payload: Any) -> list[dict[str, Any]]:
     return []
 
 
-def fetch_recent_work_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
-    """Normalize the feed into the newest recent-work entries for README.md."""
+def fetch_recent_work_items(
+    payload: dict[str, Any],
+    release_entries: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Normalize and filter recent-work entries for README.md."""
     items = extract_items(payload)
     if not items:
         raise RuntimeError("recent_work.json returned JSON, but no work items were found.")
 
+    excluded_release_ids = {release_identity(item) for item in release_entries}
     normalized = [normalize_recent_work_item(item, index) for index, item in enumerate(items)]
+    normalized = [
+        item
+        for item in normalized
+        if item["type"] != "Talk" and recent_work_identity(item) not in excluded_release_ids
+    ]
     normalized.sort(key=recent_work_sort_key, reverse=True)
     return normalized[:RECENT_WORK_COUNT]
 
@@ -200,8 +226,10 @@ def normalize_recent_work_item(item: dict[str, Any], index: int) -> dict[str, An
         raise RuntimeError(f"Feed item is missing a URL-like field: {item!r}")
 
     return {
+        "type": str(item.get("type", "")).strip(),
         "title": str(title).strip(),
         "url": str(url).strip(),
+        "source_url": str(first_non_empty(item, "sourceUrl", "url", "link", "href") or "").strip(),
         "description": collapse_whitespace(str(description).strip()) if description else "",
         "date": parse_date(date_value),
         "order": index,
@@ -304,6 +332,14 @@ def release_identity(item: dict[str, Any]) -> str:
     return f"url:{item['page_url'].lower()}"
 
 
+def recent_work_identity(item: dict[str, Any]) -> str:
+    """Match recent-work items against release entries when they refer to the same project."""
+    repo = parse_github_repo(item.get("source_url") or item.get("url"))
+    if repo:
+        return f"github:{repo.lower()}"
+    return f"url:{item['url'].lower()}"
+
+
 def parse_github_repo(url: str | None) -> str | None:
     """Extract owner/repo from a GitHub repository URL."""
     if not url:
@@ -397,6 +433,11 @@ def render_releases_markdown(items: list[dict[str, Any]]) -> str:
     return "\n\n".join(lines)
 
 
+def render_readme_releases_markdown(items: list[dict[str, Any]], limit: int = 3) -> str:
+    """Render a compact release list for the main profile README."""
+    return render_releases_markdown(items[:limit])
+
+
 def replace_chunk(content: str, marker: str, chunk: str, *, inline: bool = False) -> str:
     """Replace the content between two marker comments."""
     pattern = re.compile(
@@ -413,15 +454,20 @@ def replace_chunk(content: str, marker: str, chunk: str, *, inline: bool = False
 def main() -> None:
     """Update README.md and releases.md from the same feed snapshot."""
     payload = fetch_recent_work_payload()
+    release_entries = build_release_entries(payload)
 
     readme_contents = README_PATH.read_text(encoding="utf-8")
-    recent_work = fetch_recent_work_items(payload)
+    recent_work = fetch_recent_work_items(payload, release_entries)
     readme_markdown = render_recent_work_markdown(recent_work)
     rewritten_readme = replace_chunk(readme_contents, README_MARKER, readme_markdown)
+    rewritten_readme = replace_chunk(
+        rewritten_readme,
+        README_RECENT_RELEASES_MARKER,
+        render_readme_releases_markdown(release_entries),
+    )
     README_PATH.write_text(rewritten_readme, encoding="utf-8")
 
     releases_contents = RELEASES_PATH.read_text(encoding="utf-8")
-    release_entries = build_release_entries(payload)
     releases_markdown = render_releases_markdown(release_entries)
     rewritten_releases = replace_chunk(
         releases_contents,
