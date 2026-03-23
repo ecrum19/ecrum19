@@ -1,0 +1,31 @@
+name: Update profile
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "00 03 * * *"
+    # Run daily at 03:00 UTC to refresh the profile README from the website feed.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v6
+
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Update README and releases from website feed
+        run: uv run --frozen build_readme.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "README-bot"
+          git add README.md releases.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Update profile content"
+          git push

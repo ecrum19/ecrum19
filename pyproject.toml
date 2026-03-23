@@ -1,0 +1,9 @@
+[project]
+name = "self-updating-profile"
+version = "0.1.0"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.14"
+dependencies = [
+    "httpx ==0.28.1",
+]
