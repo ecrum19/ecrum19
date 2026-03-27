@@ -34,7 +34,7 @@ RELEASE_COUNT_MARKER = "release_count"
 EXTRA_RELEASE_REPOS = [
     {
         "title": "Personal Website",
-        "project_url": "https://eliascrum.github.io/eliascrum/",
+        "project_url": "https://ecrum19.github.io/eliascrum/",
         "source_url": "https://github.com/ecrum19/eliascrum",
         "description": "Source repository for the personal website.",
     }
@@ -228,8 +228,10 @@ def normalize_recent_work_item(item: dict[str, Any], index: int) -> dict[str, An
     return {
         "type": str(item.get("type", "")).strip(),
         "title": str(title).strip(),
-        "url": str(url).strip(),
-        "source_url": str(first_non_empty(item, "sourceUrl", "url", "link", "href") or "").strip(),
+        "url": normalize_website_url(str(url).strip()),
+        "source_url": normalize_website_url(
+            str(first_non_empty(item, "sourceUrl", "url", "link", "href") or "").strip()
+        ),
         "description": collapse_whitespace(str(description).strip()) if description else "",
         "date": parse_date(date_value),
         "order": index,
@@ -314,8 +316,12 @@ def normalize_release_item(
 
     return {
         "title": str(title).strip(),
-        "project_url": str(project_url).strip(),
-        "page_url": str(page_url).strip() if page_url else str(project_url).strip(),
+        "project_url": normalize_website_url(str(project_url).strip()),
+        "page_url": (
+            normalize_website_url(str(page_url).strip())
+            if page_url
+            else normalize_website_url(str(project_url).strip())
+        ),
         "description": collapse_whitespace(str(description).strip()) if description else "",
         "release_name": release_name,
         "release_url": release_url or str(project_url).strip(),
@@ -367,6 +373,11 @@ def first_non_empty(item: dict[str, Any], *keys: str) -> Any:
 def collapse_whitespace(value: str) -> str:
     """Keep README lines compact even if the source text contains newlines."""
     return re.sub(r"\s+", " ", value).strip()
+
+
+def normalize_website_url(value: str) -> str:
+    """Rewrite website links to the canonical GitHub Pages host."""
+    return value.replace("https://eliascrum.github.io/eliascrum/", "https://ecrum19.github.io/eliascrum/")
 
 
 def parse_date(value: Any) -> datetime:
