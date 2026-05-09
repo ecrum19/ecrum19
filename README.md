@@ -14,7 +14,7 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 * [From VCF to RDF: RML-Based Conversion Approaches for the Semantic Representation of Variant Data](https://ecrum19.github.io/eliascrum/publications/vcf-to-rdf-rml-swat4hcls-2026/paper) - Presents an RML-based approach for converting VCF genomic variant files into RDF using established ontologies, targeting more interoperable, queryable, and privacy-aware variant data representation.
 * [Genome Sharing Paper Webpage](https://ecrum19.github.io/eliascrum/software/genome-sharing-paper-webpage) - Supporting website for the genomic sequence data sharing scoping review paper, intended to make national genome initiative data easier to browse, revisit, and update in the future.
 * [Genomic sequence data sharing for clinical practice: A scoping review](https://ecrum19.github.io/eliascrum/publications/genome-sharing-review-2026/paper) - Scoping review of how genomic sequence data is shared in clinical practice, surveying implementations, infrastructure, and guidance. Identifies key barriers to scalability and adoption, and proposes concrete steps toward more unified, scalable clinical genomic data sharing systems.
-* [VCF-RDFizer Vocabulary](https://ecrum19.github.io/eliascrum/software/vcf-rdfizer-vocabulary) - Interactive vocabulary reference for the representation of VCF as semantic linked data with browsable documentation sections.
+* [QR Code Generator](https://ecrum19.github.io/eliascrum/software/qr-code-generator) - Lightweight generator for producing QR codes that can be reused in posters, slides, and project materials.
 <!-- contributions ends -->
 
 ## 🚀 Recent Releases
