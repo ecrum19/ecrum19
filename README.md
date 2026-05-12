@@ -19,7 +19,7 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [v1.1.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.1.0) - 2026-04-28
+* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [v1.2.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.2.0) - 2026-05-11
 <br>Web application for interacting with Solid Pod resources in an integrated, user-friendly interface.
 
 * **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v0.2.0](https://github.com/ecrum19/eliascrum/tree/v0.2.0) - 2026-03-23
