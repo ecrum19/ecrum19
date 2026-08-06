@@ -10,23 +10,23 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🧞 Recent Work
 <!-- contributions starts -->
+* [Solid Cockpit: Data manager, privacy editor, and query facilitator for Solid pods](https://ecrum19.github.io/eliascrum/publications/solid-cockpit-eswc-2026-demo/paper) - Presents Solid Cockpit, a browser-based interface for managing Solid Pods that integrates data management, privacy-aware permission workflows, and embedded SPARQL querying with result materialization.
 * [From VCF to RDF: RML-Based Conversion Approaches for the Semantic Representation of Variant Data](https://ecrum19.github.io/eliascrum/publications/vcf-to-rdf-rml-swat4hcls-2026/paper) - Presents an RML-based approach for converting VCF genomic variant files into RDF using established ontologies, targeting more interoperable, queryable, and privacy-aware variant data representation.
 * [Genome Sharing Paper Webpage](https://ecrum19.github.io/eliascrum/software/genome-sharing-paper-webpage) - Supporting website for the genomic sequence data sharing scoping review paper, intended to make national genome initiative data easier to browse, revisit, and update in the future.
 * [Genomic sequence data sharing for clinical practice: A scoping review](https://ecrum19.github.io/eliascrum/publications/genome-sharing-review-2026/paper) - Scoping review of how genomic sequence data is shared in clinical practice, surveying implementations, infrastructure, and guidance. Identifies key barriers to scalability and adoption, and proposes concrete steps toward more unified, scalable clinical genomic data sharing systems.
-* [VCF-RDFizer Vocabulary](https://ecrum19.github.io/eliascrum/software/vcf-rdfizer-vocabulary) - Interactive vocabulary reference for the representation of VCF as semantic linked data with browsable documentation sections.
-* [Observations on automated client-side query federation over Wikidata SPARQL endpoints](https://ecrum19.github.io/eliascrum/publications/wikidata-sparql-iswc-2025/paper) - Client-side query federation can automatically combine data across the newly split Wikidata SPARQL endpoints, reducing the need for manual source annotations in queries while remaining feasible for queries that stay within client resource limits.
+* [QR Code Generator](https://ecrum19.github.io/eliascrum/software/qr-code-generator) - Lightweight generator for producing QR codes that can be reused in posters, slides, and project materials.
 <!-- contributions ends -->
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v0.2.0](https://github.com/ecrum19/eliascrum/tree/v0.2.0) - 2026-03-23
-<br>Source repository for the personal website.
+* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [v1.3.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.3.0) - 2026-06-04
+<br>Web application for interacting with Solid Pod resources in an integrated, user-friendly interface.
 
-* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [v1.1.0](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v1.1.0) - 2026-03-16
+* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [v1.2.3](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v1.2.3) - 2026-06-02
 <br>A CLI tool for converting genomic variant data from VCF into RDF, supporting semantically interoperable downstream workflows.
 
-* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [web-app-v1.0.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/tree/web-app-v1.0.0) - 2026-03-03
-<br>Web application for interacting with Solid Pod resources in an integrated, user-friendly interface.
+* **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v0.2.0](https://github.com/ecrum19/eliascrum/tree/v0.2.0) - 2026-03-23
+<br>Source repository for the personal website.
 <!-- readme_recent_releases ends -->
 
 
