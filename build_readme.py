@@ -1,7 +1,7 @@
 """Update the profile README and releases page from the website feed.
 
 The profile README is static content on GitHub, so this script fetches the
-website's published recent-work feed, renders the 10 newest items into
+website's published recent-work feed, renders the 5 newest items into
 README.md, derives released software entries for releases.md, and lets the
 GitHub Action commit the refreshed files.
 """
@@ -297,9 +297,12 @@ def normalize_release_item(
         return None
 
     github_release = resolver.resolve(str(project_url).strip())
-    release_name = str(latest_release).strip() if latest_release else None
-    release_date = parse_date(latest_release_date) if latest_release_date else None
-    release_url = None
+    release_name, release_date_value, release_url = normalize_release_metadata(
+        latest_release
+    )
+    if latest_release_date:
+        release_date_value = latest_release_date
+    release_date = parse_date(release_date_value) if release_date_value else None
 
     if github_release is not None:
         release_url = github_release["release_url"]
@@ -328,6 +331,48 @@ def normalize_release_item(
         "release_date": release_date,
         "release_date_iso": release_date.date().isoformat(),
     }
+
+
+def normalize_release_metadata(
+    value: Any,
+) -> tuple[str | None, Any, str | None]:
+    """Extract displayable metadata from string or object-shaped release data."""
+    if isinstance(value, dict):
+        release_name = first_non_empty(
+            value,
+            "tagName",
+            "tag_name",
+            "name",
+            "title",
+            "label",
+        )
+        release_date = first_non_empty(
+            value,
+            "publishedAt",
+            "published_at",
+            "dateIso",
+            "date",
+            "createdAt",
+            "created_at",
+        )
+        release_url = first_non_empty(
+            value,
+            "htmlUrl",
+            "html_url",
+            "releaseUrl",
+            "release_url",
+            "url",
+        )
+    else:
+        release_name = value
+        release_date = None
+        release_url = None
+
+    return (
+        str(release_name).strip() if release_name not in (None, "") else None,
+        release_date,
+        str(release_url).strip() if release_url not in (None, "") else None,
+    )
 
 
 def release_identity(item: dict[str, Any]) -> str:
