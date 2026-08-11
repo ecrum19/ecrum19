@@ -10,7 +10,7 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🧞 Recent Work
 <!-- contributions starts -->
-* [Does SPARQL federation work in the real world? A case study over large biological SPARQL endpoints](https://ecrum19.github.io/eliascrum/publications/real-world-federation-iswc-2026/paper) - Presents an 18-month longitudinal study of 67 real-world federated biological SPARQL queries over more than 20 public endpoints, showing that current algorithmic federation approaches perform substantially worse than manual federation and that execution success declines over time for both.
+* [Does SPARQL federation work in the real world? A case study over large biological SPARQL endpoints](https://ecrum19.github.io/eliascrum/publications/real-world-federation-iswc-2026/paper) - Presents an 18-month longitudinal study of 67 real-world federated biological SPARQL queries over more than 20 public endpoints, and shows that a) execution success declines over time with very few queries functional by June 2026, b) current algorithmic federation approaches perform substantially worse than manual federation, and c) work is needed to assess how to enable federation over public endpoints in the age of the LLM.
 * [Solid Cockpit: Data manager, privacy editor, and query facilitator for Solid pods](https://ecrum19.github.io/eliascrum/publications/solid-cockpit-eswc-2026-demo/paper) - Presents Solid Cockpit, a browser-based interface for managing Solid Pods that integrates data management, privacy-aware permission workflows, and embedded SPARQL querying with result materialization.
 * [From VCF to RDF: RML-Based Conversion Approaches for the Semantic Representation of Variant Data](https://ecrum19.github.io/eliascrum/publications/vcf-to-rdf-rml-swat4hcls-2026/paper) - Presents an RML-based approach for converting VCF genomic variant files into RDF using established ontologies, targeting more interoperable, queryable, and privacy-aware variant data representation.
 * [Federated Query Results Explorer](https://ecrum19.github.io/eliascrum/software/fed-survey-results-explorer) - Interactive results website for exploring longitudinal federation experiments over real-world biological SPARQL endpoints.
@@ -19,13 +19,13 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [{'tagName': None, 'name': 'Latest update (main)', 'url': 'https://github.com/ecrum19/qr-code-generator', 'publishedAt': '2026-08-04T08:33:54.000Z'}](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
+* **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [Latest update (main)](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
 <br>Lightweight generator for producing QR codes that can be reused in posters, slides, and project materials.
 
-* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [{'tagName': 'v1.3.0', 'name': 'v1.3.0', 'url': 'https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.3.0', 'publishedAt': '2026-06-04T09:54:06.000Z'}](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.3.0) - 2026-06-04
+* **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [v1.3.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.3.0) - 2026-06-04
 <br>Web application for interacting with Solid Pod resources in an integrated, user-friendly interface.
 
-* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [{'tagName': 'v1.2.3', 'name': 'v1.2.3', 'url': 'https://github.com/ecrum19/VCF-RDFizer/releases/tag/v1.2.3', 'publishedAt': '2026-06-02T11:47:19.000Z'}](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v1.2.3) - 2026-06-02
+* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [v1.2.3](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v1.2.3) - 2026-06-02
 <br>A CLI tool for converting genomic variant data from VCF into RDF, supporting semantically interoperable downstream workflows.
 <!-- readme_recent_releases ends -->
 
