@@ -19,7 +19,7 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.1.1](https://github.com/ecrum19/ocg/releases/tag/v1.1.1) - 2026-08-13
+* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.1.1](https://github.com/ecrum19/ocg/releases/tag/v1.2.1) - 2026-08-13
 <br>An npm-based generator that creates GitHub Pages companions for exploring, visualizing, and documenting ontologies with configurable output.
 
 * **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [Latest update (main)](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
