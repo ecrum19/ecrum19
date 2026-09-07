@@ -6,7 +6,7 @@ All <!-- release_count starts -->9<!-- release_count ends --> of my released pro
 * **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v1.0.0](https://github.com/ecrum19/eliascrum/releases/tag/v1.0.0) - 2026-08-25
 <br>Source repository for the personal website.
 
-* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.1.1](https://github.com/ecrum19/ocg/releases/tag/v1.3.0) - 2026-08-13
+* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.1.1](https://github.com/ecrum19/ocg/releases/tag/v1.4.0) - 2026-08-13
 <br>An npm-based generator that creates GitHub Pages companions for exploring, visualizing, and documenting ontologies with configurable output.
 
 * **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [Latest update (main)](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
