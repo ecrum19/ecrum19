@@ -19,14 +19,14 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v1.0.0](https://github.com/ecrum19/eliascrum/releases/tag/v1.0.0) - 2026-08-25
-<br>Source repository for the personal website.
+* **[VCF-Core Vocabulary](https://github.com/ecrum19/vcf-core-vocabulary)**: [v2.0.0](https://github.com/ecrum19/vcf-core-vocabulary/releases/tag/v2.1.2) - 2026-09-07
+<br>Vocabulary and SHACL shapes for representing the logical VCF 4.5 model in RDF.
 
-* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.1.1](https://github.com/ecrum19/ocg/releases/tag/v1.4.0) - 2026-08-13
+* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.4.0](https://github.com/ecrum19/ocg/releases/tag/v1.4.0) - 2026-09-01
 <br>An npm-based generator that creates GitHub Pages companions for exploring, visualizing, and documenting ontologies with configurable output.
 
-* **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [Latest update (main)](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
-<br>Lightweight generator for producing QR codes that can be reused in posters, slides, and project materials.
+* **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v1.0.0](https://github.com/ecrum19/eliascrum/releases/tag/v1.0.0) - 2026-08-25
+<br>Source repository for the personal website.
 <!-- readme_recent_releases ends -->
 
 
