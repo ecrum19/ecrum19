@@ -6,7 +6,7 @@ All <!-- release_count starts -->10<!-- release_count ends --> of my released pr
 * **[VCF-Core Vocabulary](https://github.com/ecrum19/vcf-core-vocabulary)**: [v2.0.0](https://github.com/ecrum19/vcf-core-vocabulary/releases/tag/v2.1.2) - 2026-09-07
 <br>Vocabulary and SHACL shapes for representing the logical VCF 4.5 model in RDF.
 
-* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.4.0](https://github.com/ecrum19/ocg/releases/tag/v1.4.0) - 2026-09-01
+* **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.4.0](https://github.com/ecrum19/ontology_companion_generator/releases/tag/v1.5.0) - 2026-09-01
 <br>An npm-based generator that creates GitHub Pages companions for exploring, visualizing, and documenting ontologies with configurable output.
 
 * **[Personal Website](https://github.com/ecrum19/eliascrum)**: [v1.0.0](https://github.com/ecrum19/eliascrum/releases/tag/v1.0.0) - 2026-08-25
