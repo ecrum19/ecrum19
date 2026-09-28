@@ -19,7 +19,7 @@ Mostly working with knowledge graphs ([RDF](https://www.w3.org/RDF/), [SPARQL](h
 
 ## 🚀 Recent Releases
 <!-- readme_recent_releases starts -->
-* **[VCF-Core Vocabulary](https://github.com/ecrum19/vcf-core-vocabulary)**: [v2.0.0](https://github.com/ecrum19/vcf-core-vocabulary/releases/tag/v2.1.2) - 2026-09-07
+* **[VCF-Core Vocabulary](https://github.com/ecrum19/vcf-core-vocabulary)**: [v2.0.0](https://github.com/ecrum19/vcf-core-vocabulary/releases/tag/v2.1.3) - 2026-09-07
 <br>Vocabulary and SHACL shapes for representing the logical VCF 4.5 model in RDF.
 
 * **[Ontology Companion Generator](https://github.com/ecrum19/ocg)**: [v1.4.0](https://github.com/ecrum19/ontology_companion_generator/releases/tag/v1.5.0) - 2026-09-01
