@@ -15,7 +15,7 @@ All <!-- release_count starts -->10<!-- release_count ends --> of my released pr
 * **[Solid Cockpit](https://github.com/KNowledgeOnWebScale/solid-cockpit)**: [v1.4.0](https://github.com/KNowledgeOnWebScale/solid-cockpit/releases/tag/v1.4.0) - 2026-08-25
 <br>Web application for interacting with Solid Pod resources in an integrated, user-friendly interface.
 
-* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [v2.1.0](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v3.2.0) - 2026-08-24
+* **[VCF-RDFizer](https://github.com/ecrum19/VCF-RDFizer)**: [v2.1.0](https://github.com/ecrum19/VCF-RDFizer/releases/tag/v3.3.0) - 2026-08-24
 <br>A CLI tool for converting genomic variant data from VCF into RDF, supporting semantically interoperable downstream workflows.
 
 * **[QR Code Generator](https://github.com/ecrum19/qr-code-generator)**: [Latest update (main)](https://github.com/ecrum19/qr-code-generator) - 2026-08-04
