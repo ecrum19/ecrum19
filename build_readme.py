@@ -34,7 +34,7 @@ RELEASE_COUNT_MARKER = "release_count"
 EXTRA_RELEASE_REPOS = [
     {
         "title": "Personal Website",
-        "project_url": "https://ecrum19.github.io/eliascrum/",
+        "project_url": "https://eliascrum.info/",
         "source_url": "https://github.com/ecrum19/eliascrum",
         "description": "Source repository for the personal website.",
     }
@@ -421,8 +421,12 @@ def collapse_whitespace(value: str) -> str:
 
 
 def normalize_website_url(value: str) -> str:
-    """Rewrite website links to the canonical GitHub Pages host."""
-    return value.replace("https://eliascrum.github.io/eliascrum/", "https://ecrum19.github.io/eliascrum/")
+    """Rewrite legacy website links to the canonical custom domain."""
+    return re.sub(
+        r"https://[^/]+\.github\.io/eliascrum",
+        "https://eliascrum.info",
+        value,
+    )
 
 
 def parse_date(value: Any) -> datetime:
